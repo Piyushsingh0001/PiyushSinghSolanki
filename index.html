@@ -1,772 +1,975 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Piyush Singh — Premium Portfolio | Full-Stack Developer (Angular • .NET • Android • IoT)">
-    <title>Piyush Singh | Full-Stack Developer | Angular • .NET • Android • IoT</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='28' fill='%2300d4ff'/%3E%3Ctext x='64' y='88' font-family='Arial Black, sans-serif' font-size='68' font-weight='700' text-anchor='middle' dominant-baseline='middle' fill='%2305050f'%3EPS%3C/text%3E%3C/svg%3E">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&display=swap');
-        
-        :root {
-            --primary: #00d4ff;
-        }
-        
-        * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
-        }
-        
-        .tailwind-ready {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
-        
-        .heading-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, #0a0a2e 0%, #001f3f 100%);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #00d4ff;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Piyush Singh — Full Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --card: #161616;
+    --accent: #ff6b35;
+    --accent2: #00d9ff;
+    --accent3: #b8ff57;
+    --text: #f0ede8;
+    --muted: #888;
+    --border: #222;
+  }
 
-        /* EXPERIENCE TIMELINE — EXACT MATCH TO YOUR NEW SCREENSHOT */
-        .experience-timeline {
-            position: relative;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 28px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: #00d4ff;
-            z-index: 0;
-        }
-        
-        .experience-item {
-            position: relative;
-            display: grid;
-            grid-template-columns: 190px 1fr;
-            gap: 40px;
-            margin-bottom: 52px;
-            align-items: start;
-        }
-        
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .experience-left {
-            text-align: right;
-            padding-top: 8px;
-        }
-        
-        .experience-date {
-            color: #00ffcc;
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: -0.5px;
-        }
-        
-        .experience-company {
-            font-size: 23px;
-            font-weight: 700;
-            line-height: 1.1;
-        }
-        
-        .experience-location {
-            color: #8888bb;
-            font-size: 15px;
-        }
-        
-        .experience-dot {
-            position: absolute;
-            left: 21.5px;
-            top: 22px;
-            width: 14px;
-            height: 14px;
-            background: #00d4ff;
-            border: 3px solid #05050f;
-            border-radius: 50%;
-            z-index: 10;
-        }
-        
-        .experience-card {
-            background: #2a1a4d;
-            border-radius: 24px;
-            padding: 34px 38px;
-            box-shadow: 0 15px 35px -10px rgba(0, 212, 255, 0.15);
-        }
-        
-        .experience-card h3 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 22px;
-            color: white;
-        }
-        
-        .experience-card ul {
-            list-style: none;
-        }
-        
-        .experience-card li {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 18px;
-            color: #e0e0ff;
-            font-size: 17px;
-            line-height: 1.55;
-        }
-        
-        .experience-card li:last-child {
-            margin-bottom: 0;
-        }
-        
-        .blue-check {
-            width: 26px;
-            height: 26px;
-            background: #00b8ff;
-            border-radius: 50%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 2px;
-        }
-        
-        .blue-check i {
-            color: white;
-            font-size: 14px;
-        }
-        
-        /* Rest of the styles remain the same */
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.15);
-        }
-        
-        .project-card {
-            background: #111133;
-            border-radius: 24px;
-            padding: 28px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px -15px rgba(0, 212, 255, 0.15);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 50px -12px rgba(0, 212, 255, 0.25);
-        }
-        
-        .project-num {
-            font-size: 13px;
-            letter-spacing: 1px;
-            color: #00d4ff;
-            font-weight: 600;
-        }
-        
-        .project-name {
-            font-size: 24px;
-            font-weight: 600;
-            margin: 12px 0 16px;
-            line-height: 1.2;
-        }
-        
-        .project-desc {
-            flex-grow: 1;
-            color: #c0c0e0;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .project-tag {
-            background: rgba(255,255,255,0.08);
-            color: #e0e0ff;
-            font-size: 12px;
-            padding: 4px 14px;
-            border-radius: 9999px;
-            font-weight: 500;
-        }
-    </style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed; width: 12px; height: 12px;
+    background: var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, background 0.2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed; width: 40px; height: 40px;
+    border: 1px solid var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease-out;
+    opacity: 0.6;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1; opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100; padding: 1.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+    backdrop-filter: blur(0px);
+  }
+  nav.scrolled {
+    background: rgba(10,10,10,0.85);
+    border-color: var(--border);
+    backdrop-filter: blur(20px);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.3rem;
+    color: var(--text); text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.2s; position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 1px; background: var(--accent);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,107,53,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,107,53,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  }
+
+  .hero-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
+  }
+  .hero-tag::before {
+    content: ''; width: 40px; height: 1px; background: var(--accent);
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3.5rem, 10vw, 9rem);
+    line-height: 0.9; letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    opacity: 0; animation: fadeUp 0.7s 0.35s forwards;
+  }
+  .hero-name .outline {
+    -webkit-text-stroke: 1px var(--text);
+    color: transparent;
+  }
+  .hero-name .accent-word { color: var(--accent); }
+
+  .hero-title {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: var(--accent2);
+    margin-top: 1.5rem; margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
+  }
+
+  .hero-bio {
+    max-width: 560px;
+    font-size: 1rem; line-height: 1.8;
+    color: var(--muted);
+    opacity: 0; animation: fadeUp 0.7s 0.65s forwards;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.7s 0.8s forwards;
+  }
+  .btn-primary {
+    background: var(--accent); color: #0a0a0a;
+    padding: 0.9rem 2.2rem;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: none;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: transform 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent3); transform: translate(-3px, -3px); }
+  .btn-outline {
+    border: 1px solid var(--border); color: var(--text);
+    padding: 0.9rem 2.2rem;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;
+    text-decoration: none; cursor: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); transform: translate(-3px, -3px); }
+
+  .hero-scroll-hint {
+    position: absolute; bottom: 2.5rem; left: 4rem;
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 1rem;
+    opacity: 0; animation: fadeUp 0.7s 1.1s forwards;
+  }
+  .scroll-line {
+    width: 50px; height: 1px; background: var(--muted);
+    position: relative; overflow: hidden;
+  }
+  .scroll-line::after {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%; background: var(--accent);
+    animation: scrollLine 2s 1.5s infinite;
+  }
+
+  .hero-stats {
+    position: absolute; right: 4rem; bottom: 4rem;
+    display: flex; flex-direction: column; gap: 2rem;
+    opacity: 0; animation: fadeUp 0.7s 1s forwards;
+  }
+  .stat { text-align: right; }
+  .stat-num {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 2.5rem; color: var(--accent); line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* SECTION COMMONS */
+  section { padding: 7rem 4rem; position: relative; }
+  .section-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; color: var(--accent); letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-tag::before { content: '//'; color: var(--muted); }
+  .section-title {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    letter-spacing: -0.02em; line-height: 1;
+    margin-bottom: 4rem;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+  .divider {
+    width: 100%; height: 1px; background: var(--border);
+    margin: 0;
+  }
+
+  /* ABOUT */
+  #about { background: var(--surface); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+    align-items: center;
+  }
+  .about-text p {
+    font-size: 1.05rem; line-height: 1.85; color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-right { display: flex; flex-direction: column; gap: 1.5rem; }
+  .info-row {
+    display: flex; justify-content: space-between;
+    padding: 1rem 0; border-bottom: 1px solid var(--border);
+  }
+  .info-label {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .info-val { font-size: 0.9rem; color: var(--text); }
+  .info-val a { color: var(--accent2); text-decoration: none; }
+  .availability-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(184,255,87,0.1); border: 1px solid rgba(184,255,87,0.3);
+    padding: 0.5rem 1rem; margin-top: 1.5rem;
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--accent3); letter-spacing: 0.1em;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent3); animation: pulse 2s infinite;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--bg); }
+  .skills-categories { display: flex; flex-direction: column; gap: 3rem; }
+  .skill-category-title {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .skills-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .pill {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--border);
+    font-size: 0.82rem; color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    transition: all 0.2s; cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .pill::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--accent); transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: 0;
+  }
+  .pill span { position: relative; z-index: 1; }
+  .pill:hover { color: #0a0a0a; border-color: var(--accent); }
+  .pill:hover::before { transform: translateX(0); }
+  .pill.accent2 { border-color: rgba(0,217,255,0.2); }
+  .pill.accent2:hover { color: #0a0a0a; border-color: var(--accent2); }
+  .pill.accent2::before { background: var(--accent2); }
+  .pill.accent3 { border-color: rgba(184,255,87,0.2); }
+  .pill.accent3:hover { color: #0a0a0a; border-color: var(--accent3); }
+  .pill.accent3::before { background: var(--accent3); }
+
+  /* EXPERIENCE */
+  #experience { background: var(--surface); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+  }
+  .timeline-item {
+    position: relative; padding: 0 0 3.5rem 2.5rem;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -6px; top: 6px;
+    width: 13px; height: 13px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+    transition: transform 0.2s;
+  }
+  .timeline-item:hover::before { transform: scale(1.4); background: var(--accent3); }
+  .tl-period {
+    font-family: 'Space Mono', monospace; font-size: 0.68rem;
+    color: var(--accent2); letter-spacing: 0.1em; margin-bottom: 0.4rem;
+  }
+  .tl-role {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 1.3rem; margin-bottom: 0.2rem; color: var(--text);
+  }
+  .tl-company {
+    font-size: 0.85rem; color: var(--accent); margin-bottom: 1rem;
+    font-family: 'Space Mono', monospace;
+  }
+  .tl-points { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .tl-points li {
+    font-size: 0.9rem; color: var(--muted); line-height: 1.65;
+    padding-left: 1.2rem; position: relative;
+  }
+  .tl-points li::before {
+    content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; top: 3px;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5px; }
+  .project-card {
+    background: var(--card);
+    padding: 2.5rem; border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .project-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,107,53,0.04), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .project-card:hover { transform: translate(-4px, -4px); border-color: var(--accent); z-index: 1; }
+  .project-card:hover::after { opacity: 1; }
+  .project-num {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: var(--muted); letter-spacing: 0.1em; margin-bottom: 1.2rem;
+  }
+  .project-name {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--text);
+    line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 0.88rem; color: var(--muted); line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .project-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    color: var(--accent2); border: 1px solid rgba(0,217,255,0.25);
+    padding: 0.25rem 0.6rem; letter-spacing: 0.08em;
+  }
+
+  /* EDUCATION */
+  #education { background: var(--surface); }
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+  .edu-card {
+    padding: 2rem 2.5rem;
+    border: 1px solid var(--border);
+    background: var(--card);
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .edu-card:hover { border-color: var(--accent3); }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%; background: var(--accent3);
+  }
+  .edu-period {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: var(--accent3); letter-spacing: 0.12em; margin-bottom: 0.5rem;
+  }
+  .edu-degree {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 1.15rem; color: var(--text); margin-bottom: 0.3rem;
+  }
+  .edu-inst { font-size: 0.88rem; color: var(--muted); }
+
+  /* HOBBIES */
+  #hobbies { background: var(--bg); }
+  .hobbies-track-wrapper {
+    overflow: hidden; margin: 0 -4rem;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+  .hobbies-track {
+    display: flex; gap: 2rem;
+    animation: marquee 18s linear infinite;
+    width: max-content;
+  }
+  .hobby-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.2rem 2.2rem;
+    border: 1px solid var(--border);
+    background: var(--card);
+    white-space: nowrap;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 1rem; color: var(--text);
+    transition: border-color 0.2s;
+  }
+  .hobby-icon { font-size: 1.4rem; }
+  .hobby-item:nth-child(odd) { border-color: rgba(255,107,53,0.2); }
+  .hobby-item:nth-child(even) { border-color: rgba(0,217,255,0.2); }
+
+  /* CONTACT */
+  #contact {
+    background: var(--surface);
+    text-align: center;
+  }
+  .contact-headline {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    letter-spacing: -0.03em; line-height: 0.95;
+    margin-bottom: 2rem;
+  }
+  .contact-headline .outline {
+    -webkit-text-stroke: 1px var(--text); color: transparent;
+  }
+  .contact-email {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+    display: inline-block; margin-bottom: 3.5rem;
+  }
+  .contact-email:hover { color: var(--accent3); border-color: var(--accent3); }
+  .social-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .social-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid var(--border);
+    color: var(--muted); text-decoration: none;
+    font-family: 'Space Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .social-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+  .social-link svg { width: 15px; height: 15px; fill: currentColor; }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--bg);
+  }
+  .footer-copy {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: var(--muted); letter-spacing: 0.1em;
+  }
+  .footer-back {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: var(--muted); text-decoration: none; letter-spacing: 0.1em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .footer-back:hover { color: var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+  @keyframes scrollLine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 3rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-stats { position: static; margin-top: 3rem; flex-direction: row; gap: 3rem; }
+    .hero-scroll-hint { display: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+    .hero-stats { right: 1.5rem; }
+    .hobbies-track-wrapper { margin: 0 -1.5rem; }
+  }
+</style>
 </head>
-<body class="tailwind-ready bg-[#05050f] text-white">
-    <!-- NAVBAR -->
-    <nav class="bg-[#0a0a2e]/90 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-x-3">
-                <div class="w-9 h-9 bg-[#00d4ff] rounded-2xl flex items-center justify-center text-[#05050f] text-2xl font-bold">PS</div>
-                <h1 class="heading-font text-2xl tracking-tighter">Piyush Singh</h1>
-            </div>
-            
-            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            
-            <div class="flex items-center gap-x-4">
-                <a href="https://linkedin.com/in/piyush-singh-solanki-20a483249" target="_blank" 
-                   class="flex items-center gap-x-2 text-sm font-medium bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-3xl">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="mailto:ssinghpiyush14@gmail.com" 
-                   class="flex items-center gap-x-2 text-sm font-medium bg-[#00d4ff] text-[#05050f] hover:bg-[#00b8e6] px-6 py-2.5 rounded-3xl font-semibold">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Get in touch</span>
-                </a>
-                
-                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
-                    <i class="fas fa-bars" id="mobile-icon"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-[#0a0a2e] border-t border-white/10 px-6 py-4">
-            <div class="flex flex-col gap-y-4 text-sm font-medium">
-                <a href="#about" onclick="toggleMobileMenu()" class="py-2">About</a>
-                <a href="#skills" onclick="toggleMobileMenu()" class="py-2">Skills</a>
-                <a href="#experience" onclick="toggleMobileMenu()" class="py-2">Experience</a>
-                <a href="#projects" onclick="toggleMobileMenu()" class="py-2">Projects</a>
-                <a href="#education" onclick="toggleMobileMenu()" class="py-2">Education</a>
-                <a href="#contact" onclick="toggleMobileMenu()" class="py-2">Contact</a>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <!-- HERO -->
-    <header class="hero-bg min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-sm font-medium px-6 py-3 rounded-3xl">
-                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    Available for opportunities • Open to relocation
-                </div>
-                
-                <h1 class="heading-font text-6xl md:text-7xl leading-none font-semibold tracking-tighter">
-                    Piyush Singh
-                </h1>
-                <h2 class="text-4xl md:text-5xl text-[#00d4ff] heading-font font-semibold tracking-tight">
-                    Full-Stack Engineer
-                </h2>
-                <p class="text-xl text-gray-300 max-w-lg">
-                    3+ years building enterprise-grade smart metering systems (HES • MDM) with Angular, .NET, and now leading Android development for field operations.
-                </p>
-                
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contact" 
-                       class="flex items-center justify-center gap-x-3 bg-[#00d4ff] hover:bg-[#00b8e6] text-[#05050f] font-semibold text-lg px-10 py-5 rounded-3xl">
-                        <i class="fas fa-handshake"></i>
-                        Let's build something great
-                    </a>
-                    
-                    <a href="https://drive.google.com/file/d/1RDjy3PCYx2LAsmYNlq1VWkZypfnJKmj7/view?usp=sharing" target="_blank" 
-                       class="flex items-center justify-center gap-x-3 border border-white/30 hover:border-white/60 font-medium text-lg px-8 py-5 rounded-3xl">
-                        <i class="fas fa-download"></i>
-                        Download CV (PDF)
-                    </a>
-                    
-                    <a href="https://linkedin.com/in/piyush-singh-solanki-20a483249" target="_blank"
-                       class="flex items-center justify-center gap-x-3 border border-white/30 hover:border-white/60 px-7 rounded-3xl">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                </div>
-                
-                <div class="flex items-center gap-x-8 text-sm">
-                    <div>
-                        <span class="block text-gray-400">Current Role</span>
-                        <span class="font-semibold text-lg">Associate Software Engineer @ Cabcon Technologies</span>
-                    </div>
-                    <div class="h-12 w-px bg-white/20"></div>
-                    <div>
-                        <span class="block text-gray-400">Location</span>
-                        <span class="font-semibold text-lg">Kolkata, India</span>
-                    </div>
-                    <div class="h-12 w-px bg-white/20"></div>
-                    <div>
-                        <span class="block text-gray-400">Phone</span>
-                        <a href="tel:7007999573" class="font-semibold text-lg hover:text-[#00d4ff]">+91 70079 99573</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hidden md:flex justify-end">
-                <div class="relative">
-                    <div class="w-96 h-96 bg-gradient-to-br from-[#00d4ff]/20 to-transparent rounded-[4rem] rotate-12 flex items-center justify-center">
-                        <div class="bg-[#05050f] w-80 h-80 rounded-3xl shadow-2xl flex flex-col items-center justify-center p-8 text-center border border-[#00d4ff]/30">
-                            <div class="text-7xl mb-6">🚀</div>
-                            <h3 class="heading-font text-4xl mb-2">Enterprise Smart Metering</h3>
-                            <p class="text-gray-400 mb-8">HES • MDM • Android Field Apps</p>
-                            
-                            <div class="grid grid-cols-3 gap-4 w-full">
-                                <div class="bg-white/10 rounded-2xl py-3 text-center">
-                                    <i class="fab fa-angular text-4xl text-[#00d4ff]"></i>
-                                </div>
-                                <div class="bg-white/10 rounded-2xl py-3 text-center">
-                                    <i class="fas fa-server text-4xl text-[#00d4ff]"></i>
-                                </div>
-                                <div class="bg-white/10 rounded-2xl py-3 text-center">
-                                    <i class="fas fa-mobile-alt text-4xl text-[#00d4ff]"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-8 text-xs uppercase tracking-[2px] font-medium text-emerald-400 flex items-center gap-x-2">
-                                <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                                LIVE IN PRODUCTION
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="absolute -top-6 -right-6 bg-[#111133] border border-[#00d4ff] text-white text-sm font-medium px-6 py-3 rounded-3xl shadow-xl flex items-center gap-x-2">
-                        <i class="fas fa-trophy"></i>
-                        Grafana Localization Expert
-                    </div>
-                    <div class="absolute -bottom-8 -left-8 bg-[#111133] border border-[#00d4ff] text-white text-sm font-medium px-6 py-3 rounded-3xl shadow-xl">
-                        Android Meter Reading App • 2026
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- <div class="absolute bottom-10 left-1/2 flex flex-col items-center">
-            <span class="text-xs uppercase tracking-widest mb-2">Scroll to explore</span>
-            <i class="fas fa-chevron-down text-3xl animate-bounce"></i>
-        </div> -->
-    </header>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- ABOUT -->
-    <section id="about" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="grid md:grid-cols-12 gap-16">
-            <div class="md:col-span-5">
-                <span class="text-[#00d4ff] text-sm font-semibold tracking-widest">PROFESSIONAL SUMMARY</span>
-                <h2 class="heading-font text-5xl leading-none mt-4 mb-8">Turning complex metering data into elegant, real-time digital experiences.</h2>
-                <div class="flex items-center gap-x-4">
-                    <div class="flex -space-x-4">
-                        <div class="w-8 h-8 bg-[#00d4ff] rounded-2xl flex items-center justify-center text-xs ring-2 ring-[#05050f]">A</div>
-                        <div class="w-8 h-8 bg-emerald-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-[#05050f]">N</div>
-                        <div class="w-8 h-8 bg-orange-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-[#05050f]">.N</div>
-                    </div>
-                    <p class="text-gray-400">Angular • .NET • Android • SQL • Grafana • IoT</p>
-                </div>
-            </div>
-            
-            <div class="md:col-span-7 text-lg text-gray-300 leading-relaxed">
-                Associate Software Engineer with <strong>3+ years</strong> of hands-on experience across the full SDLC. 
-                Specialized in building scalable enterprise applications for smart metering (HES &amp; MDM systems). 
-                Proven expertise in Angular (v16–v19), .NET Core, REST APIs, role-based access control, audit logging, 
-                real-time data pipelines, and dynamic multilingual Grafana dashboards.
-                <br><br>
-                Currently developing a <strong>mobile-first Android Meter Reading application</strong> at Cabcon Technologies, 
-                enabling field teams to collect and sync smart metering data in real time.
-                <br><br>
-                Passionate about performance optimization, clean architecture, multithreading, CI/CD, and delivering production-grade solutions that power millions of smart meters.
-            </div>
-        </div>
-    </section>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">PS<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <!-- SKILLS -->
-    <section id="skills" class="bg-[#0a0a2e] py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-end justify-between mb-12">
-                <div>
-                    <span class="uppercase text-[#00d4ff] text-sm font-medium">Technical Arsenal</span>
-                    <h2 class="heading-font text-5xl">Skills that ship</h2>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fab fa-angular text-6xl text-red-500 mb-4"></i>
-                    <span class="font-semibold text-xl">Angular (v16–19)</span>
-                    <span class="text-xs text-gray-400 mt-1">TypeScript • RxJS • Signals</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fas fa-dot-circle text-6xl text-purple-500 mb-4"></i>
-                    <span class="font-semibold text-xl">.NET Core &amp; MVC</span>
-                    <span class="text-xs text-gray-400 mt-1">Web API • REST • WCF</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fas fa-mobile-alt text-6xl text-emerald-400 mb-4"></i>
-                    <span class="font-semibold text-xl">Android Development</span>
-                    <span class="text-xs text-gray-400 mt-1">.Net MAUI • Java • Meter App</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fas fa-database text-6xl text-orange-400 mb-4"></i>
-                    <span class="font-semibold text-xl">MS SQL Server</span>
-                    <span class="text-xs text-gray-400 mt-1">Optimization • InfluxDB</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fas fa-chart-line text-6xl text-[#00d4ff] mb-4"></i>
-                    <span class="font-semibold text-xl">Grafana • i18n</span>
-                    <span class="text-xs text-gray-400 mt-1">Dynamic Localization (7 languages)</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fas fa-cogs text-6xl text-cyan-400 mb-4"></i>
-                    <span class="font-semibold text-xl">Azure DevOps • CI/CD</span>
-                    <span class="text-xs text-gray-400 mt-1">TFS • Postman • Playwright</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <span class="text-5xl mb-3">🧬</span>
-                    <span class="font-semibold text-xl">SOLID • DRY • Observer</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fas fa-code-branch text-6xl text-pink-400 mb-4"></i>
-                    <span class="font-semibold text-xl">Multithreading • Async</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fab fa-js-square text-6xl text-yellow-400 mb-4"></i>
-                    <span class="font-semibold text-xl">TypeScript • ES6+</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <span class="text-5xl mb-3">📊</span>
-                    <span class="font-semibold text-xl">Jasmine • Karma • Pytest</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <i class="fas fa-cloud text-6xl text-blue-400 mb-4"></i>
-                    <span class="font-semibold text-xl">Windows Services • SOAP</span>
-                </div>
-                <div class="bg-[#111133] rounded-3xl p-6 card-hover flex flex-col items-center text-center">
-                    <span class="text-5xl mb-3">📡</span>
-                    <span class="font-semibold text-xl">IoT • Arduino • LoRa</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-tag">Available for opportunities</div>
+  <div class="hero-name">
+    <div>PIYUSH</div>
+    <div class="outline">SINGH</div>
+  </div>
+  <div class="hero-title">// Full Stack Developer — .NET · Angular · Cloud</div>
+  <p class="hero-bio">
+    Passionate software developer building scalable enterprise applications. Clean code, real-world impact, and continuous learning.
+  </p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn-primary">View My Work</a>
+    <a href="#contact" class="btn-outline">Get In Touch</a>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Years Exp.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">9+</div>
+      <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Technologies</div>
+    </div>
+  </div>
+</section>
 
-    <!-- EXPERIENCE — PERFECTLY MATCHED TO YOUR LATEST SCREENSHOT -->
-    <section id="experience" class="max-w-7xl mx-auto px-6 py-24">
-        <span class="uppercase text-[#00d4ff] text-sm font-medium">JOURNEY SO FAR</span>
-        <h2 class="heading-font text-5xl mb-16">Experience</h2>
-        
-        <div class="experience-timeline">
-            
-            <!-- Cabcon Technologies -->
-            <div class="experience-item">
-                <div class="experience-left">
-                    <div class="experience-date">Feb 2026 – Present</div>
-                    <div class="experience-company">Cabcon<br>Technologies</div>
-                    <div class="experience-location">Kolkata, India</div>
-                </div>
-                <div class="experience-card">
-                    <h3>Associate Software Engineer</h3>
-                    <ul>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Developing <strong>Meter Reading Android application</strong> — mobile-first solution for smart metering data collection and field operations</span>
-                        </li>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Building real-time sync, offline support, and intuitive UI for field technicians</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="experience-dot"></div>
-            </div>
+<div class="divider"></div>
 
-            <!-- Iskraemeco TDC Pvt. Ltd. -->
-            <div class="experience-item">
-                <div class="experience-left">
-                    <div class="experience-date">Dec 2024 – Feb 2026</div>
-                    <div class="experience-company">Iskraemeco<br>TDC Pvt. Ltd.</div>
-                    <div class="experience-location">Kolkata, India</div>
-                </div>
-                <div class="experience-card">
-                    <h3>Associate Software Engineer</h3>
-                    <ul>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Developed Angular enterprise UI modules for HES &amp; MDM systems</span>
-                        </li>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Integrated frontend with .NET REST APIs &amp; implemented RBAC (View, Modify, Execute, Delete)</span>
-                        </li>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Built audit logging, dynamic filtering, and real-time Grafana dashboard localization (7 languages)</span>
-                        </li>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Led SQL optimization, CI/CD pipelines, code reviews, and multithreading performance improvements</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="experience-dot"></div>
-            </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag reveal">About Me</div>
+  <h2 class="section-title reveal"><em>Who</em> I Am</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I am a <strong>passionate software developer</strong> with experience in building scalable applications using modern technologies like <strong>.NET and Angular</strong>. I enjoy solving real-world problems through clean, efficient code and continuously improving my skills in backend development, APIs, and cloud-based solutions.</p>
+      <p>Beyond professional work, I am a <strong>curious learner</strong> who loves exploring new technologies, working on side projects, and staying updated with industry trends. I value simplicity, consistency, and writing code that is both <strong>maintainable and impactful</strong>.</p>
+    </div>
+    <div class="about-right reveal reveal-delay-1">
+      <div class="info-row">
+        <span class="info-label">Location</span>
+        <span class="info-val">Kolkata, India</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Role</span>
+        <span class="info-val">Associate Software Engineer</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Company</span>
+        <span class="info-val">Cancon Technologies</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Education</span>
+        <span class="info-val">B.Tech CSE — SMIT</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">GitHub</span>
+        <span class="info-val"><a href="https://github.com/Piyushsingh0001" target="_blank">Piyushsingh0001</a></span>
+      </div>
+      <div class="availability-badge">
+        <div class="dot"></div>
+        Open to new opportunities
+      </div>
+    </div>
+  </div>
+</section>
 
-            <!-- Graduate Engineer Trainee -->
-            <div class="experience-item">
-                <div class="experience-left">
-                    <div class="experience-date">Sep 2023 – Dec 2024</div>
-                    <div class="experience-company">Iskraemeco India<br>Pvt. Ltd.</div>
-                    <div class="experience-location">Kolkata, India</div>
-                </div>
-                <div class="experience-card">
-                    <h3>Graduate Engineer Trainee (GET)</h3>
-                    <ul>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Gained hands-on experience in full-stack development with Angular and .NET</span>
-                        </li>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Assisted in developing and maintaining HES and MDM modules for smart metering solutions</span>
-                        </li>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Performed bug fixes, root cause analysis, and field issue stabilization in MeterConfigurator module</span>
-                        </li>
-                        <li>
-                            <div class="blue-check"><i class="fas fa-check"></i></div>
-                            <span>Participated in CI/CD pipelines and Azure DevOps workflows</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="experience-dot"></div>
-            </div>
-        </div>
-    </section>
+<div class="divider"></div>
 
-    <!-- PROJECTS (already updated with all 9 projects) -->
-    <section id="projects" class="bg-[#0a0a2e] py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-end justify-between mb-12">
-                <div>
-                    <span class="uppercase text-[#00d4ff] text-sm font-medium">SELECTED WORK</span>
-                    <h2 class="heading-font text-5xl">Featured <span class="text-[#00d4ff]">Projects</span></h2>
-                </div>
-                <p class="max-w-xs text-gray-400 hidden md:block">From enterprise smart metering platforms to IoT prototypes — every project shipped with impact</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card">
-                    <div class="project-num">01 / Enterprise Platform</div>
-                    <div class="project-name">Symbiot Smart Metering Suite</div>
-                    <div class="project-desc">End-to-end smart metering platform supporting device communication, data validation, analytics, and billing. Built HES modules using Windows Services, SOAP, and .NET APIs for real-time meter data ingestion. Core MDM modules for data processing, validation, storage, and reporting.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">.NET</span>
-                        <span class="project-tag">Angular</span>
-                        <span class="project-tag">MS SQL</span>
-                        <span class="project-tag">Windows Services</span>
-                        <span class="project-tag">REST API</span>
-                    </div>
-                </div>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag reveal">Technical Arsenal</div>
+  <h2 class="section-title reveal">Skills &amp; <em>Tools</em></h2>
+  <div class="skills-categories">
+    <div class="reveal">
+      <div class="skill-category-title">Programming Languages</div>
+      <div class="skills-pills">
+        <div class="pill"><span>C#</span></div>
+        <div class="pill"><span>TypeScript</span></div>
+        <div class="pill"><span>JavaScript</span></div>
+        <div class="pill"><span>Python</span></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="skill-category-title">Frontend Technologies</div>
+      <div class="skills-pills">
+        <div class="pill accent2"><span>Angular (v16–v19)</span></div>
+        <div class="pill accent2"><span>AngularJS</span></div>
+        <div class="pill accent2"><span>HTML5</span></div>
+        <div class="pill accent2"><span>CSS3</span></div>
+        <div class="pill accent2"><span>Bootstrap</span></div>
+        <div class="pill accent2"><span>JavaScript ES6+</span></div>
+        <div class="pill accent2"><span>jQuery</span></div>
+        <div class="pill accent2"><span>Responsive UI</span></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="skill-category-title">Backend Technologies</div>
+      <div class="skills-pills">
+        <div class="pill"><span>.NET Core & MVC</span></div>
+        <div class="pill"><span>Web API</span></div>
+        <div class="pill"><span>REST API</span></div>
+        <div class="pill"><span>WCF</span></div>
+        <div class="pill"><span>Windows Services</span></div>
+        <div class="pill"><span>Windows Forms</span></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="skill-category-title">Data & Databases</div>
+      <div class="skills-pills">
+        <div class="pill accent3"><span>MS SQL Server</span></div>
+        <div class="pill accent3"><span>InfluxDB</span></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="skill-category-title">DevOps, Tools & Testing</div>
+      <div class="skills-pills">
+        <div class="pill accent2"><span>Azure DevOps</span></div>
+        <div class="pill accent2"><span>CI/CD Pipelines</span></div>
+        <div class="pill accent2"><span>TFS</span></div>
+        <div class="pill accent2"><span>Postman</span></div>
+        <div class="pill accent2"><span>Grafana</span></div>
+        <div class="pill accent2"><span>Jasmine</span></div>
+        <div class="pill accent2"><span>Karma</span></div>
+        <div class="pill accent2"><span>Playwright</span></div>
+        <div class="pill accent2"><span>Pytest</span></div>
+        <div class="pill accent2"><span>DevExpress</span></div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-3">
+      <div class="skill-category-title">Design Principles</div>
+      <div class="skills-pills">
+        <div class="pill accent3"><span>SOLID</span></div>
+        <div class="pill accent3"><span>DRY</span></div>
+        <div class="pill accent3"><span>i18n Localization</span></div>
+        <div class="pill accent3"><span>Multithreading</span></div>
+        <div class="pill accent3"><span>Async / Await</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="project-card">
-                    <div class="project-num">02 / Localization</div>
-                    <div class="project-name">Dynamic Grafana Dashboard Localization</div>
-                    <div class="project-desc">Backend plugin to dynamically translate Grafana dashboards from English to multiple languages. Upgraded from Grafana v9 to v12, eliminated JSON dashboard duplication, and replaced old incompatible plugins — improving scalability and maintainability significantly.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">Grafana</span>
-                        <span class="project-tag">.NET</span>
-                        <span class="project-tag">InfluxDB</span>
-                        <span class="project-tag">i18n</span>
-                        <span class="project-tag">Plugin Dev</span>
-                    </div>
-                </div>
+<div class="divider"></div>
 
-                <div class="project-card">
-                    <div class="project-num">03 / Analytics</div>
-                    <div class="project-name">Total Consumption — MDM</div>
-                    <div class="project-desc">Designed UI and business logic to track total energy consumption across metering points. Built with configurable parameters and intuitive data visualization for energy analytics.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">Angular</span>
-                        <span class="project-tag">.NET</span>
-                        <span class="project-tag">MS SQL</span>
-                        <span class="project-tag">DevExpress</span>
-                    </div>
-                </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag reveal">Career Path</div>
+  <h2 class="section-title reveal">Work <em>Experience</em></h2>
+  <div class="timeline">
 
-                <div class="project-card">
-                    <div class="project-num">04 / Comparison</div>
-                    <div class="project-name">Usage Point Comparison — MDM</div>
-                    <div class="project-desc">Developed comparison functionality for usage points based on configurable parameters. Enables side-by-side analysis of metering data to identify consumption patterns and anomalies.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">Angular</span>
-                        <span class="project-tag">.NET</span>
-                        <span class="project-tag">REST API</span>
-                        <span class="project-tag">SQL</span>
-                    </div>
-                </div>
+    <div class="timeline-item reveal">
+      <div class="tl-period">02/2026 — Present</div>
+      <div class="tl-role">Associate Software Engineer</div>
+      <div class="tl-company">Cancon Technologies · Kolkata</div>
+      <ul class="tl-points">
+        <li>Working on Meter Reading Android application development.</li>
+        <li>Developing mobile-first solutions for smart metering data collection and field operations.</li>
+      </ul>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-num">05 / Reporting</div>
-                    <div class="project-name">Reporting Module — HES &amp; MDM</div>
-                    <div class="project-desc">Created customizable reports with advanced filtering and export options for business analysis. Supports multiple output formats and role-based access for enterprise reporting requirements.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">Angular</span>
-                        <span class="project-tag">.NET</span>
-                        <span class="project-tag">DevExpress</span>
-                        <span class="project-tag">SQL</span>
-                    </div>
-                </div>
+    <div class="timeline-item reveal reveal-delay-1">
+      <div class="tl-period">12/2024 — 02/2026</div>
+      <div class="tl-role">Associate Software Engineer</div>
+      <div class="tl-company">Iskraemeco TDC Pvt. Ltd. · Kolkata</div>
+      <ul class="tl-points">
+        <li>Developed Angular-based enterprise UI modules for HES and MDM systems, improving performance and UX.</li>
+        <li>Integrated frontend with .NET REST APIs ensuring secure and efficient data exchange.</li>
+        <li>Implemented role-based access control (View, Modify, Execute, Delete) for Usage Point and Exception modules.</li>
+        <li>Built audit logging functionality to monitor critical system operations for compliance and traceability.</li>
+        <li>Created dynamic Grafana dashboard localization enabling real-time language switching across 7 languages.</li>
+        <li>Led SQL optimization, API design, and CI/CD deployments, improving performance and release efficiency.</li>
+        <li>Applied multithreading, async/await, and parallel execution for high-performance operations.</li>
+        <li>Utilized Azure DevOps for source control, build pipelines, and automated releases.</li>
+      </ul>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-num">06 / Compliance</div>
-                    <div class="project-name">Audit Logging — MDM</div>
-                    <div class="project-desc">Built complete audit trail functionality to monitor and trace system actions for compliance and accountability. Includes dynamic filtering, access enforcement, and real-time traceability across critical operations.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">Angular</span>
-                        <span class="project-tag">.NET</span>
-                        <span class="project-tag">RBAC</span>
-                        <span class="project-tag">MS SQL</span>
-                    </div>
-                </div>
+    <div class="timeline-item reveal reveal-delay-2">
+      <div class="tl-period">09/2023 — 12/2024</div>
+      <div class="tl-role">Graduate Engineer Trainee (GET)</div>
+      <div class="tl-company">Iskraemeco India Pvt. Ltd. · Kolkata</div>
+      <ul class="tl-points">
+        <li>Gained hands-on experience in full-stack development with Angular and .NET.</li>
+        <li>Assisted in developing and maintaining HES and MDM modules for smart metering solutions.</li>
+        <li>Worked on data validation, reporting, and UI enhancements for existing applications.</li>
+        <li>Performed bug fixes, root cause analysis, and field issue stabilization in MeterConfigurator.</li>
+        <li>Participated in CI/CD pipelines and Azure DevOps workflows for automated deployments.</li>
+      </ul>
+    </div>
 
-                <div class="project-card">
-                    <div class="project-num">07 / Mobile Development</div>
-                    <div class="project-name">Smart Meter Reading App</div>
-                    <div class="project-desc">A professional Android application developed for field operations. Streamlines data collection for smart meters, featuring offline capabilities and real-time synchronization with centralized utility management systems.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">Android</span>
-                        <span class="project-tag">.Net MAUI</span>
-                        <span class="project-tag">SQLite</span>
-                        <span class="project-tag">REST API</span>
-                    </div>
-                </div>
+  </div>
+</section>
 
-                <div class="project-card">
-                    <div class="project-num">08 / Assistive Tech</div>
-                    <div class="project-name">Voice Controlled Home Automation</div>
-                    <div class="project-desc">An accessibility-focused IoT system enabling elderly and disabled users to manage home utilities via voice commands. Features a mobile interface communicating over Wi-Fi/Bluetooth for hands-free control.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">IoT</span>
-                        <span class="project-tag">Arduino</span>
-                        <span class="project-tag">Bluetooth</span>
-                        <span class="project-tag">Mobile App</span>
-                    </div>
-                </div>
+<div class="divider"></div>
 
-                <div class="project-card">
-                    <div class="project-num">09 / Environment Monitoring</div>
-                    <div class="project-name">LoRa-Based Air Quality Monitor</div>
-                    <div class="project-desc">A long-range environmental monitoring system using SX1278 (LoRa) and Arduino. Tracks CO levels, temperature, and humidity, transmitting real-time data to a cloud server for remote analysis.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">LoRa</span>
-                        <span class="project-tag">Arduino</span>
-                        <span class="project-tag">Sensors</span>
-                        <span class="project-tag">Cloud Integration</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag reveal">Selected Work</div>
+  <h2 class="section-title reveal">Featured <em>Projects</em></h2>
+  <div class="projects-grid">
 
-    <!-- EDUCATION -->
-    <section id="education" class="max-w-7xl mx-auto px-6 py-24">
-        <span class="text-[#00d4ff] uppercase text-sm font-medium">Foundation</span>
-        <h2 class="heading-font text-5xl mb-12">Education &amp; Certifications</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-[#111133] rounded-3xl p-8">
-                <div class="flex justify-between">
-                    <div>
-                        <h3 class="font-semibold text-2xl">B. Tech (Computer Science &amp; Engineering)</h3>
-                        <p class="text-gray-400">Sikkim Manipal Institute of Technology</p>
-                    </div>
-                    <div class="text-right text-sm">
-                        May 2019 – Jul 2023
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-[#111133] rounded-3xl p-8">
-                <div class="flex justify-between">
-                    <div>
-                        <h3 class="font-semibold text-2xl">Post Graduate Certificate in Embedded Systems (IoT)</h3>
-                        <p class="text-gray-400">Webel Fujisoft Vara (CoE 4.0)</p>
-                    </div>
-                    <div class="text-right text-sm">
-                        Jan 2023 – Dec 2023
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="project-card reveal">
+      <div class="project-num">01 / Enterprise Platform</div>
+      <div class="project-name">Symbiot Smart Metering Suite</div>
+      <div class="project-desc">End-to-end smart metering platform supporting device communication, data validation, analytics, and billing. Built HES modules using Windows Services, SOAP, and .NET APIs for real-time meter data ingestion. Core MDM modules for data processing, validation, storage, and reporting.</div>
+      <div class="project-tags">
+        <span class="project-tag">.NET</span>
+        <span class="project-tag">Angular</span>
+        <span class="project-tag">MS SQL</span>
+        <span class="project-tag">Windows Services</span>
+        <span class="project-tag">REST API</span>
+      </div>
+    </div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="bg-gradient-to-br from-[#001f3f] to-[#0a0a2e] py-24">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="heading-font text-6xl mb-6">Let's connect and build the next-gen smart infrastructure together</h2>
-            <p class="text-2xl text-gray-300 mb-12">Open to full-time roles, freelance, or technical discussions on Angular, .NET, Android &amp; metering platforms.</p>
-            
-            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <a href="mailto:ssinghpiyush14@gmail.com" 
-                   class="flex-1 max-w-xs bg-[#00d4ff] text-[#05050f] font-semibold text-2xl py-6 rounded-3xl flex items-center justify-center gap-x-4">
-                    <i class="fas fa-envelope"></i>
-                    Email me
-                </a>
-                <a href="tel:7007999573" 
-                   class="flex-1 max-w-xs border-2 border-white/60 hover:border-white font-semibold text-2xl py-6 rounded-3xl flex items-center justify-center gap-x-4">
-                    <i class="fas fa-phone"></i>
-                    +91 70079 99573
-                </a>
-                <a href="https://linkedin.com/in/piyush-singh-solanki-20a483249" target="_blank"
-                   class="flex-1 max-w-xs border-2 border-white/60 hover:border-white font-semibold text-2xl py-6 rounded-3xl flex items-center justify-center gap-x-4">
-                    <i class="fab fa-linkedin"></i>
-                    LinkedIn
-                </a>
-            </div>
-            
-            <p class="text-xs text-gray-500 mt-16">© 2026 Piyush Singh • All rights reserved • Kolkata, India</p>
-        </div>
-    </section>
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-num">02 / Localization</div>
+      <div class="project-name">Dynamic Grafana Dashboard Localization</div>
+      <div class="project-desc">Backend plugin to dynamically translate Grafana dashboards from English to multiple languages. Upgraded from Grafana v9 to v12, eliminated JSON dashboard duplication, and replaced old incompatible plugins — improving scalability and maintainability significantly.</div>
+      <div class="project-tags">
+        <span class="project-tag">Grafana</span>
+        <span class="project-tag">.NET</span>
+        <span class="project-tag">InfluxDB</span>
+        <span class="project-tag">i18n</span>
+        <span class="project-tag">Plugin Dev</span>
+      </div>
+    </div>
 
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('mobile-icon');
-            menu.classList.toggle('hidden');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.replace('fa-bars', 'fa-times');
-            } else {
-                icon.classList.replace('fa-times', 'fa-bars');
-            }
-        }
-        
-        console.log('%c✅ Portfolio updated — Experience section now 100% matches your latest screenshot!', 'color:#00d4ff; font-size:13px; font-weight:bold');
-    </script>
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-num">03 / Analytics</div>
+      <div class="project-name">Total Consumption — MDM</div>
+      <div class="project-desc">Designed UI and business logic to track total energy consumption across metering points. Built with configurable parameters and intuitive data visualization for energy analytics.</div>
+      <div class="project-tags">
+        <span class="project-tag">Angular</span>
+        <span class="project-tag">.NET</span>
+        <span class="project-tag">MS SQL</span>
+        <span class="project-tag">DevExpress</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">04 / Comparison</div>
+      <div class="project-name">Usage Point Comparison — MDM</div>
+      <div class="project-desc">Developed comparison functionality for usage points based on configurable parameters. Enables side-by-side analysis of metering data to identify consumption patterns and anomalies.</div>
+      <div class="project-tags">
+        <span class="project-tag">Angular</span>
+        <span class="project-tag">.NET</span>
+        <span class="project-tag">REST API</span>
+        <span class="project-tag">SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-num">05 / Reporting</div>
+      <div class="project-name">Reporting Module — HES & MDM</div>
+      <div class="project-desc">Created customizable reports with advanced filtering and export options for business analysis. Supports multiple output formats and role-based access for enterprise reporting requirements.</div>
+      <div class="project-tags">
+        <span class="project-tag">Angular</span>
+        <span class="project-tag">.NET</span>
+        <span class="project-tag">DevExpress</span>
+        <span class="project-tag">SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-num">06 / Compliance</div>
+      <div class="project-name">Audit Logging — MDM</div>
+      <div class="project-desc">Built complete audit trail functionality to monitor and trace system actions for compliance and accountability. Includes dynamic filtering, access enforcement, and real-time traceability across critical operations.</div>
+      <div class="project-tags">
+        <span class="project-tag">Angular</span>
+        <span class="project-tag">.NET</span>
+        <span class="project-tag">RBAC</span>
+        <span class="project-tag">MS SQL</span>
+      </div>
+    </div>
+<div class="project-card reveal">
+      <div class="project-num">07 / Mobile Development</div>
+      <div class="project-name">Smart Meter Reading App</div>
+      <div class="project-desc">A professional Android application developed for field operations. Streamlines data collection for smart meters, featuring offline capabilities and real-time synchronization with centralized utility management systems.</div>
+      <div class="project-tags">
+        <span class="project-tag">Android</span>
+        <span class="project-tag">Kotlin/Java</span>
+        <span class="project-tag">SQLite</span>
+        <span class="project-tag">REST API</span>
+      </div>
+    </div>
+	<div class="project-card reveal reveal-delay-1">
+      <div class="project-num">08 / Assistive Tech</div>
+      <div class="project-name">Voice Controlled Home Automation</div>
+      <div class="project-desc">An accessibility-focused IoT system enabling elderly and disabled users to manage home utilities via voice commands. Features a mobile interface communicating over Wi-Fi/Bluetooth for hands-free control.</div>
+      <div class="project-tags">
+        <span class="project-tag">IoT</span>
+        <span class="project-tag">Arduino</span>
+        <span class="project-tag">Bluetooth</span>
+        <span class="project-tag">Mobile App</span>
+      </div>
+    </div>
+	<div class="project-card reveal reveal-delay-2">
+      <div class="project-num">09 / Environment Monitoring</div>
+      <div class="project-name">LoRa-Based Air Quality Monitor</div>
+      <div class="project-desc">A long-range environmental monitoring system using SX1278 (LoRa) and Arduino. Tracks CO levels, temperature, and humidity, transmitting real-time data to a cloud server for remote analysis.</div>
+      <div class="project-tags">
+        <span class="project-tag">LoRa</span>
+        <span class="project-tag">Arduino</span>
+        <span class="project-tag">Sensors</span>
+        <span class="project-tag">Cloud Integration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-tag reveal">Academic Background</div>
+  <h2 class="section-title reveal"><em>Education</em> & Certs</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-period">05/2019 — 07/2023</div>
+      <div class="edu-degree">B.Tech — Computer Science & Engineering</div>
+      <div class="edu-inst">Sikkim Manipal Institute of Technology</div>
+    </div>
+    <div class="edu-card reveal reveal-delay-1">
+      <div class="edu-period">01/2023 — 12/2023</div>
+      <div class="edu-degree">PG Certificate — Embedded Systems (IoT)</div>
+      <div class="edu-inst">Webel Fujisoft Vara (CoE 4.0)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <div class="section-tag reveal">Beyond the Screen</div>
+  <h2 class="section-title reveal">Hobbies &amp; <em>Interests</em></h2>
+  <div class="hobbies-track-wrapper">
+    <div class="hobbies-track">
+      <div class="hobby-item"><span class="hobby-icon">♟️</span> Chess</div>
+      <div class="hobby-item"><span class="hobby-icon">🏐</span> Volleyball</div>
+      <div class="hobby-item"><span class="hobby-icon">✈️</span> Travelling</div>
+      <div class="hobby-item"><span class="hobby-icon">📚</span> Reading Books</div>
+      <div class="hobby-item"><span class="hobby-icon">🤝</span> Helping the Needy</div>
+      <div class="hobby-item"><span class="hobby-icon">🗺️</span> Exploring New Places</div>
+      <div class="hobby-item"><span class="hobby-icon">💻</span> Side Projects</div>
+      <div class="hobby-item"><span class="hobby-icon">🔍</span> New Technologies</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="hobby-item"><span class="hobby-icon">♟️</span> Chess</div>
+      <div class="hobby-item"><span class="hobby-icon">🏐</span> Volleyball</div>
+      <div class="hobby-item"><span class="hobby-icon">✈️</span> Travelling</div>
+      <div class="hobby-item"><span class="hobby-icon">📚</span> Reading Books</div>
+      <div class="hobby-item"><span class="hobby-icon">🤝</span> Helping the Needy</div>
+      <div class="hobby-item"><span class="hobby-icon">🗺️</span> Exploring New Places</div>
+      <div class="hobby-item"><span class="hobby-icon">💻</span> Side Projects</div>
+      <div class="hobby-item"><span class="hobby-icon">🔍</span> New Technologies</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag reveal" style="justify-content:center">Let's Connect</div>
+  <div class="contact-headline reveal">
+    <div>LET'S</div>
+    <div class="outline">BUILD</div>
+    <div>TOGETHER</div>
+  </div>
+  <div class="reveal">
+    <a href="mailto:ssinghpiyush14@gmail.com" class="contact-email">ssinghpiyush14@gmail.com</a>
+  </div>
+  <div class="social-links reveal reveal-delay-1">
+    <a href="https://github.com/Piyushsingh0001" target="_blank" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.1.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/piyush-singh-solanki-20a483249/" target="_blank" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/piyushsingh.solanki.94" target="_blank" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.87v2.28h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/piyush_singh002" target="_blank" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85C2.38 3.86 3.9 2.31 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24c3.26 0 3.67-.01 4.95-.07 4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95 0-3.26-.01-3.67-.07-4.95-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32A6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+      Instagram
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 Piyush Singh. All rights reserved.</span>
+  <a href="#hero" class="footer-back">↑ Back to Top</a>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animateCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+  document.querySelectorAll('a, button, .pill, .project-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(2)'; ring.style.opacity = '0.3'; });
+    el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.opacity = '0.6'; });
+  });
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
